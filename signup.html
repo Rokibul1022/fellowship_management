@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - ICT Division Fellowship Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Signup Page Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* Header and Navbar */
+        header {
+            width: 100%;
+            padding: 10px 0;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+        }
+
+        header img.logo {
+            max-width: 100px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Signup Container Styles */
+        .signup-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+            animation: fadeIn 1s ease;
+        }
+
+        .signup-container h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        /* Form Styling */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            text-align: left;
+            color: #555;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="password"],
+        select {
+            padding: 12px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #6e8efb;
+            box-shadow: 0 0 5px rgba(110, 142, 251, 0.5);
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 12px;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #5a7ae6, #956bd4);
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        p a {
+            color: #6e8efb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        p a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animation for Signup Form */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.png" alt="ICT Division Logo" class="logo">
+    <h1>ICT Division Fellowship Management</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Fellowships.html">Fellowship</a></li>
+            <li><a href="apply.html">Apply</a></li>
+            <li><a href="status.html">Application Status</a></li>
+            <li><a href="mentorship.html">Mentorship</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="admin.html">Admin</a></li>
+            <li><a href="login.html" class="login-btn">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="signup-container">
+    <h2>Create Your Account</h2>
+    <form action="register.php" method="POST">
+        
+        <label for="u_id">u_id</label>
+        <input type="text" id="u_id" name="u_id" required>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+      
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required>
+        
+        <label for="district">District:</label>
+        <select id="district" name="district" required>
+            <option value="" disabled selected>Select your district</option>
+            <option value="Dhaka">Dhaka</option>
+            <option value="Chattogram">Chattogram</option>
+            <option value="Khulna">Khulna</option>
+            <option value="Rajshahi">Rajshahi</option>
+            <option value="Barishal">Barishal</option>
+            <option value="Sylhet">Sylhet</option>
+            <option value="Rangpur">Rangpur</option>
+            <option value="Mymensingh">Mymensingh</option>
+        </select>
+        <label for="department">Department:</label>
+<select id="department" name="department" required>
+    <option value="CSE">CSE</option>
+    <option value="EEE">EEE</option>
+    <option value="BBA">BBA</option>
+    <option value="ME">ME</option>
+    <option value="Civil">Civil</option>
+</select>
+
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <button type="submit">Sign Up</button>
+        <p>Already have an account? <a href="login.html">Log In</a></p>
+    </form>
+</div>
+
+</body>
+</html>

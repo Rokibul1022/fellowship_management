@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Status</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="ICT Division Logo" class="logo">
+        <h1>ICT Division Fellowship Management</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Fellowships.html">Fellowship</a></li>
+                <li><a href="apply.html">Apply</a></li>
+                <li><a href="status.html">Application Status</a></li>
+                <li><a href="mentorship.html">Mentorship</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Check Your Application Status</h2>
+        <p>To check your application status, please enter your email address:</p>
+        <form action="check_status.php" method="POST">
+         
+        
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <button type="submit">Check Status</button>
+        </form>
+
+        <section>
+            <h3>Your Application Status</h3>
+            <p>Your application is currently under review. You will be notified via email once the review is complete.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ICT Division. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

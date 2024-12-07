@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - ICT Division Fellowship Management</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #333;
+        }
+
+        header {
+            background-color: #fff;
+            color: #333;
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        header .logo {
+            width: 50px;
+            height: 50px;
+            vertical-align: middle;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin: 0;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            background-color: #fff;
+            border-top: 1px solid #ddd;
+        }
+
+        nav ul li {
+            position: relative;
+            margin: 0 20px;
+            padding: 10px 0;
+            border-bottom: 1px solid transparent;
+        }
+
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: #000;
+        }
+
+        /* Dropdown Menu */
+        nav ul li.dropdown {
+            position: relative;
+        }
+
+        nav ul li.dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        nav ul li .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            min-width: 200px;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+
+        nav ul li .dropdown-menu li {
+            padding: 10px 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        nav ul li .dropdown-menu li a {
+            color: #333;
+            font-size: 16px;
+        }
+
+        nav ul li .dropdown-menu li a:hover {
+            color: #000;
+            background-color: #f4f4f4;
+        }
+
+        /* Hero Section */
+        .hero-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 50px 20px;
+            background-color: #fff;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .hero-section {
+            flex: 1;
+            background-color: #f4f4f4; /* Light grey background */
+            border-radius: 10px;
+            padding: 30px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .hero-section:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-section img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .hero-section h3 {
+            font-size: 24px;
+            margin-top: 15px;
+        }
+
+        .hero-section p {
+            font-size: 16px;
+            margin-top: 10px;
+            color: #555;
+        }
+
+        .cta-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            text-decoration: none;
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #555;
+        }
+
+        /* Grid Section */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 40px 20px;
+        }
+
+        .grid-item {
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .grid-item h3 {
+            font-size: 20px;
+            margin-top: 15px;
+        }
+
+        .grid-item p {
+            font-size: 14px;
+            margin-top: 10px;
+            color: #777;
+        }
+
+        .cta-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #555;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #fff;
+            color: #333;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #ddd;
+        }
+
+        footer .social-links {
+            margin-bottom: 10px;
+        }
+
+        footer .social-links a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+
+        footer .social-links a:hover {
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="ICT Division Logo" class="logo">
+        <h1>ICT Division Fellowship Management</h1>
+        
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="Fellowships.php">Fellowship</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="fellow.php">Fellows</a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="check_status.php">Application Status</a></li>
+                <li><a href="department.php">Department</a></li>
+                <li><a href="projects.php">Projects</a></li>
+                <li><a href="courses.php">Courses</a></li>
+                <li><a href="enroll.php">Enroll</a></li>
+                <li><a href="sponsor.php">Sponsor</a></li>
+                <li><a href="faculty.php">Faculty</a></li>
+                <li><a href="admin.php">Admin</a></li>
+                <li><a href="scholarship.php">Scholarship</a></li>
+                <li class="dropdown">
+                    <a href="login.html" class="login-btn">Login</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="signup.html">Signup</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section with 5 blocks -->
+    <div class="hero-container">
+        <div class="hero-section">
+            <img src="program1.jpg" alt="Program 1">
+            <h3>Application</h3>
+            <p>Apply for the best opportunity in the industry.</p>
+            <a href="applications.php" class="cta-button">Join Today</a>
+        </div>
+        <div class="hero-section">
+            <img src="program2.jpg" alt="Program 2">
+            <h3>Multiple Table CRUD</h3>
+            <p>Get practical experience and build your future.</p>
+            <a href="crud_multiple.php" class="cta-button">Explore & Edit</a>
+        </div>
+        <div class="hero-section">
+            <img src="program3.jpg" alt="Program 3">
+            <h3> Search Data From Multiple Table</h3>
+            <p>Join a team of passionate professionals.</p>
+            <a href="search.php" class="cta-button">Browse Tables</a>
+        </div>
+        <div class="hero-section">
+            <img src="program4.jpg" alt="Program 4">
+            <h3>Write Sql & Find Data</h3>
+            <p>Find and explore any data From Fwllowship_management.</p>
+            <a href="sql_query.php" class="cta-button">Run Queries</a>
+        </div>
+        <div class="hero-section">
+            <img src="program5.jpg" alt="Program 5">
+            <h3>Feedbacks</h3>
+            <p>Give & See & Show & Feedback</p>
+            <a href="feedback.php" class="cta-button">Share & View Feedback</a>
+        </div>
+    </div>
+
+    <!-- Grid Section -->
+    <main>
+        <h2>Explore Our Programs</h2>
+        <div class="grid-container">
+            <div class="grid-item">
+                <img src="program1.jpg" alt="Program 1">
+                <h3>Fellowship Program A</h3>
+                <p>Join our fellowship program to enhance your skills and gain practical experience.</p>
+                <a href="fellowship.html" class="cta-button">Read More</a>
+            </div>
+            <div class="grid-item">
+                <img src="program2.jpg" alt="Program 2">
+                <h3>Fellowship Program B</h3>
+                <p>Join our fellowship program to enhance your skills and gain practical experience.</p>
+                <a href="fellowship.html" class="cta-button">Read More</a>
+            </div>
+            <div class="grid-item">
+                <img src="program3.jpg" alt="Program 3">
+                <h3>Fellowship Program C</h3>
+                <p>Join our fellowship program to enhance your skills and gain practical experience.</p>
+                <a href="fellowship.html" class="cta-button">Read More</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Instagram</a>
+        </div>
+        <p>&copy; 2024 ICT Division. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
